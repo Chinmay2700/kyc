@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= title%></title>
+</head>
+<body>
+	<p><%= title%> portal</p>
+	<form method="post" action="/selfie">
+		<p1><%= title%> Number: </p1><input id="aadhar_id" type="text" name="aadhar_id" maxlength="12" required="required"><br><br>
+		<p1>Front :</p1>
+		<input id="img1" type="file" name="front" accept="image/*" required="required" onchange="previewFile1()"><br><img id="image1" src="" height="200" alt="Image preview..."><br>
+		<p1 id="back">Back :</p1>
+		<input id="img2" type="file" name="back" accept="image/*" required="required" onchange="previewFile2()"><br><img id="image2" src="" height="200" alt="Image preview..."><br>
+		<button id="fileSubmit" type="submit">Submit</button>
+	</form>
+</body>
+	<script>
+		document.getElementById("img2").disabled=<%= hid%>;
+		document.getElementById("back").disabled=<%= hid%>;
+		document.getElementById("image2").disabled=<%= hid%>;
+		
+		document.getElementById("img2").hidden=<%= hid%>;
+		document.getElementById("back").hidden=<%= hid%>;
+		document.getElementById("image2").hidden=<%= hid%>;
+
+		function previewFile1() {
+  			var preview = document.getElementById("image1");
+  			var file    = document.getElementById("img1").files[0];
+  			var reader  = new FileReader();
+
+  			reader.onloadend = function () {
+    			preview.src = reader.result;
+  			}
+
+  			if (file) {
+    			reader.readAsDataURL(file);
+  			} else {
+    			preview.src = "";
+  			}
+		}
+		function previewFile2() {
+  			var preview = document.getElementById('image2');
+  			var file    = document.getElementById("img2").files[0];
+  			var reader  = new FileReader();
+
+  			reader.onloadend = function () {
+    			preview.src = reader.result;
+  			}
+
+  			if (file) {
+    			reader.readAsDataURL(file);
+  			} else {
+    			preview.src = "";
+  			}
+		}
+	</script>
+</html>

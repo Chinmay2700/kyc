@@ -5,19 +5,19 @@ console.log("Server started at port no. 3000");
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
-router.post('/portal', function(req,res) {
+router.post('/upload', function(req,res) {
     var select=req.body.selectpicker;
     if(select==0)
-        res.render("aadhar");
+        res.render("upload",{title: 'Aadhar', hid:false});
     else if(select==1)
-        res.render("pan");
+        res.render("upload",{title: 'PAN', hid:true});
     else if(select==2)
-        res.render("drlic");
+        res.render("upload",{title: 'Driving License', hid:true});
     else
-        res.render("passport");
+        res.render("upload",{title: 'Passport', hid:true});
 
 });
-router.post('/addfile',function(req,res){
+router.post('/selfie',function(req,res){
     res.render("video");
-})
+});
 module.exports = router;

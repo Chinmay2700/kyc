@@ -7,7 +7,9 @@
     <button type="button" onclick="cameraAccess()">take photo</button>
   		<video id="video" width="640" height="480" autoplay></video>
 		<button id="snap">Snap Photo</button>
-		<canvas id="canvas" width="160" height="120"></canvas>
+		<canvas id="canvas" width="320" height="240">Preview</canvas>
+		<button type="submit">Submit</button>
+
 	<script>
 	var video = document.getElementById('video');
 	var canvas = document.getElementById('canvas');
@@ -24,9 +26,8 @@
     	    	video.play();
     		});
 		}
-
 		document.getElementById("snap").addEventListener("click", function() {
-		context.drawImage(video, 0, 0, 160, 120);
+		context.drawImage(video, 0, 0, 320, 240);
 		});
 	}
 	</script>
