@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <h1>Take a Selfie of your face.</h1>
+    <button type="button" onclick="cameraAccess()">take photo</button>
+  		<video id="video" width="640" height="480" autoplay></video>
+		<button id="snap">Snap Photo</button>
+		<canvas id="canvas" width="160" height="120"></canvas>
+	<script>
+	var video = document.getElementById('video');
+	var canvas = document.getElementById('canvas');
+	var context = canvas.getContext('2d');
+	var video = document.getElementById('video');
+
+	// Get access to the camera!
+	function cameraAccess(){
+		if(navigator.mediaDevices.getUserMedia) {
+		    // Not adding `{ audio: true }` since we only want video now
+		    navigator.mediaDevices.getUserMedia({ video: true }).then(function(	stream) {
+    	    	//video.src = window.URL.createObjectURL(stream);
+  		    	video.srcObject = stream;
+    	    	video.play();
+    		});
+		}
+
+		document.getElementById("snap").addEventListener("click", function() {
+		context.drawImage(video, 0, 0, 160, 120);
+		});
+	}
+	</script>
+  </body>
+</html>
