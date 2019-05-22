@@ -5,12 +5,12 @@
 </head>
 <body>
 	<p><%= title%> portal</p>
-	<form method="post" action="/selfie">
-		<p1><%= title%> Number: </p1><input id="aadhar_id" type="text" name="aadhar_id" maxlength="12" required="required"><br><br>
+	<form method="post" action="/selfie" enctype="multipart/form.data">
+		<p1><%= title%> Number: </p1><input id="aadhar_id" type="text" name="id" maxlength="12" required="required"><br><br>
 		<p1>Front :</p1>
-		<input id="img1" type="file" name="front" accept="image/*" required="required" onchange="previewFile1()"><br><img id="image1" src="" height="200" alt="Image preview..."><br>
+		<input id="img1" type="file" name="front" accept="image/*" required="required" onchange="previewFile1()"/><br><img id="image1" src="" height="200" alt="Image preview..."><br>
 		<p1 id="back">Back :</p1>
-		<input id="img2" type="file" name="back" accept="image/*" required="required" onchange="previewFile2()"><br><img id="image2" src="" height="200" alt="Image preview..."><br>
+		<input id="img2" type="file" name="back" accept="image/*" required="required" onchange="previewFile2()"/><br><img id="image2" src="" height="200" alt="Image preview..."><br>
 		<button id="fileSubmit" type="submit">Submit</button>
 	</form>
 </body>
@@ -27,7 +27,6 @@
   			var preview = document.getElementById("image1");
   			var file    = document.getElementById("img1").files[0];
   			var reader  = new FileReader();
-
   			reader.onloadend = function () {
     			preview.src = reader.result;
   			}
@@ -53,5 +52,7 @@
     			preview.src = "";
   			}
 		}
+
+
 	</script>
 </html>

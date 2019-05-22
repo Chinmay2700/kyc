@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>User List</h1>
+	<p><%= userlist%></p>
+    <ul>
+      <% for (i = 0; i < userlist.length; i++) { %>
+          <li><%= userlist[i].id%>
+          <canvas width="320" height="240"><%= userlist[i].front_img %></canvas></a></li>
+          <br>
+        <% } %>
+    </ul>
+</body>
+</html>
